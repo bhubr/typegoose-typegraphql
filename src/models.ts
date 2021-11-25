@@ -7,6 +7,9 @@ export class Issue {
   @prop()
   public content!: string;
 
+  @prop({ ref: () => Project })
+  public project: Ref<Project>;
+
   @prop({ ref: () => User })
   public author: Ref<User>;
 
@@ -23,6 +26,9 @@ export class Project {
 
   @prop({ ref: () => User })
   public users!: Ref<User>[];
+
+  @prop({ ref: () => Issue })
+  public issues!: Ref<Issue>[];
 }
 
 export class User {
